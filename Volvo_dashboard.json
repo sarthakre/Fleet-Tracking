@@ -1,0 +1,103 @@
+{
+  "title": "Smart Fleet Tracking Dashboard",
+  "configuration": {
+    "widgets": {
+      "1": {
+        "type": "timeseries",
+        "title": "Engine Status",
+        "settings": {
+          "datasource": {
+            "type": "device",
+            "name": "Volvo-MH31-CC-1234",
+            "dataKey": "engine_status"
+          },
+          "interval": "10s"
+        }
+      },
+      "2": {
+        "type": "map",
+        "title": "Vehicle Locations",
+        "settings": {
+          "datasource": {
+            "type": "device",
+            "name": "Volvo-MH31-CC-1234",
+            "dataKey": ["latitude", "longitude"]
+          },
+          "mapProvider": "openStreetMap",
+          "autoCenterAndZoom": true
+        }
+      },
+      "3": {
+        "type": "gauge",
+        "title": "Mileage",
+        "settings": {
+          "datasource": {
+            "type": "device",
+            "name": "Volvo-MH31-CC-1234",
+            "dataKey": "mileage"
+          },
+          "min": 0,
+          "max": 200000
+        }
+      },
+      "4": {
+        "type": "gauge",
+        "title": "Temperature",
+        "settings": {
+          "datasource": {
+            "type": "device",
+            "name": "Volvo-MH31-CC-1234",
+            "dataKey": "temperature"
+          },
+          "min": -10,
+          "max": 40
+        }
+      },
+      "5": {
+        "type": "gauge",
+        "title": "Ambient Temperature",
+        "settings": {
+          "datasource": {
+            "type": "device",
+            "name": "Volvo-MH31-CC-1234",
+            "dataKey": "ambient_temperature"
+          },
+          "min": -10,
+          "max": 40
+        }
+      }
+    },
+    "layout": {
+      "rows": [
+        {
+          "columns": [
+            {
+              "size": 6,
+              "widgets": ["1"]
+            },
+            {
+              "size": 6,
+              "widgets": ["2"]
+            }
+          ]
+        },
+        {
+          "columns": [
+            {
+              "size": 4,
+              "widgets": ["3"]
+            },
+            {
+              "size": 4,
+              "widgets": ["4"]
+            },
+            {
+              "size": 4,
+              "widgets": ["5"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
